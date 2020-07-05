@@ -154,8 +154,8 @@ export default {
     }
   },
   watch: {
-    activeTab(tabName) {
-      this.goToTabRoute(tabName)
+    activeTab(newTab) {
+      this.goToTabRoute(newTab)
     }
   }
 };
