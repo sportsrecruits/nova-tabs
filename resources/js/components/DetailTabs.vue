@@ -120,6 +120,19 @@ export default {
       tab.init = true;
       this.activeTab = tab.name;
     },
+    goToTabRoute(tabName) {
+      const currentRoute = this.$route
+
+      if (currentRoute.query.tab !== tabName) {
+        this.$router.replace({
+          ...currentRoute,
+          query: {
+            ...currentRoute.query,
+            tab: tabName
+          },
+        })
+      }
+    },
     /**
      * Slugify
      * From: https://gist.github.com/mathewbyrne/1280286
@@ -138,6 +151,11 @@ export default {
       return field.prefixComponent
         ? "detail-" + field.component
         : field.component;
+    }
+  },
+  watch: {
+    activeTab(tabName) {
+      this.goToTabRoute(tabName)
     }
   }
 };
