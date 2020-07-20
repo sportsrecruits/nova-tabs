@@ -19,7 +19,7 @@
         :class="[(panel && panel.defaultSearch) ? 'default-search': 'tab-content', slugify(tab.name)]"
         :ref="slugify(tab.name)"
         v-for="(tab, index) in tabs"
-        v-show="tab.name == activeTab"
+        v-if="tab.name == activeTab"
         :label="tab.name"
         :key="'related-tabs-fields' + index"
       >
